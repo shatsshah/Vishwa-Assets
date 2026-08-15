@@ -9,7 +9,7 @@
 <xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
 <![endif]-->
 <style type="text/css">
-  @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rajdhani:wght@400;600;700&family=Roboto:wght@400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rajdhani:wght@400;600;700;900&family=Roboto:wght@400&display=swap');
   
   body { margin:0; padding:0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; background-color: dimgray; min-width: 100%; }
   table { border-collapse:collapse; border-spacing: 0; }
@@ -21,11 +21,14 @@
   @media only screen and (max-width:600px) {
     .wrap { width:100% !important; max-width:100% !important; border-left: none !important; border-right: none !important; }
     
-    /* FIX: Removes the grey left/right margins on mobile so it expands edge-to-edge */
     .mobile-no-pad { padding: 10px 0 !important; }
     
-    .main-title { font-size: 26px !important; line-height: 30px !important; letter-spacing: 1px !important; }
+    /* FIX: Ensured the main title stays bold and scaled correctly */
+    .main-title { font-size: 28px !important; line-height: 32px !important; letter-spacing: 0px !important; font-weight: 900 !important; }
     .logo-subtitle { font-size: 12px !important; line-height: 16px !important; padding-bottom: 15px !important; }
+    
+    /* FIX: Slightly scales down the Secretary role text so it never snaps the Y to the next line */
+    .role-text { font-size: 15px !important; letter-spacing: 0px !important; }
     
     .h1 { font-size:22px !important; line-height:26px !important; }
     .stripe-box { padding: 0 4px !important; width: 15% !important; }
@@ -33,8 +36,8 @@
     .mobile-pad { padding: 0 8px !important; }
 
     .black-ops-one-regular {
-        font-family: "Black Ops One", system-ui;
-        font-weight: 400;
+        font-family: "Black Ops One", "Arial Black", Impact, sans-serif;
+        font-weight: 900;
         font-style: normal;
     }
   }
@@ -44,8 +47,7 @@
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: dimgray;">
   <tr>
-    <!-- APPLIED MOBILE FIX HERE -->
-    <td align="center" class="mobile-no-pad" style="padding:40px 10px;">
+    <td align="center" class="mobile-no-pad" style="padding:40px 0px;">
 
       <!--[if mso]><table border="0" cellpadding="0" cellspacing="0" width="600"><tr><td><![endif]-->
       <table border="0" cellpadding="0" cellspacing="0" width="600" class="wrap" style="width:100%; max-width:600px; background-color:#F7F4E7; border:2px solid #D7BE72;">
@@ -82,7 +84,8 @@
                   <!-- TOP HEADER TEXT -->
                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr>
-                      <td align="center" class="main-title black-ops-one-regular" style="font-family: 'Black Ops One',Arial,sans-serif; font-size:40px; line-height:40px; font-weight:400; letter-spacing:1px; color:#3A0B0D; text-transform:uppercase; word-break: break-word;">
+                      <!-- FIX: Added heavy fallbacks (Arial Black, Impact) and bumped font-weight to 900 -->
+                      <td align="center" class="main-title black-ops-one-regular" style="font-family: 'Black Ops One', 'Arial Black', Impact, sans-serif; font-size:40px; line-height:40px; font-weight:900; letter-spacing:1px; color:#3A0B0D; text-transform:uppercase; word-break: normal;">
                         VISHWA SHAURYAM
                       </td>
                     </tr>
@@ -96,7 +99,6 @@
                   <!-- QUOTES & STRIPES -->
                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr>
-                      <!-- LEFT STRIPE -->
                       <td class="stripe-box" width="20%" valign="middle" align="center" style="padding:0 5px 0 15px;">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:150px; margin:0 auto;">
                           <tr><td style="height:6px; background-color:#FF9933; font-size:0; line-height:6px;">&nbsp;</td></tr>
@@ -104,8 +106,6 @@
                           <tr><td style="height:6px; background-color:#138808; font-size:0; line-height:6px;">&nbsp;</td></tr>
                         </table>
                       </td>
-
-                      <!-- CENTER TEXT (Quote ONLY) -->
                       <td class="center-text" width="60%" valign="middle" align="center" style="padding:10px 5px; min-width:240px;">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                           <tr>
@@ -115,8 +115,6 @@
                           </tr>
                         </table>
                       </td>
-
-                      <!-- RIGHT STRIPE -->
                       <td class="stripe-box" width="20%" valign="middle" align="center" style="padding:0 15px 0 5px;">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:150px; margin:0 auto;">
                           <tr><td style="height:6px; background-color:#FF9933; font-size:0; line-height:6px;">&nbsp;</td></tr>
@@ -163,14 +161,14 @@
                     </tr>
                   </table>
 
-                  <!-- TWO COLUMN BODY (RIGID SIDE-BY-SIDE / NO STACKING) -->
+                  <!-- TWO COLUMN BODY (RIGID SIDE-BY-SIDE) -->
                   <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;">
                     <tr>
                       <td class="mobile-pad" style="padding:0 16px;">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                           <tr>
                             
-                            <!-- LEFT COLUMN (STRICT 50%) -->
+                            <!-- LEFT COLUMN -->
                             <td width="50%" valign="top" style="padding-right:4px;">
                               
                               <!-- ROLE CARD -->
@@ -181,13 +179,17 @@
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td style="padding:0 8px; font-family:'Rajdhani',Arial,sans-serif; font-size:20px; font-weight:700; color:#3A0B0D; text-transform:uppercase; word-break:break-word;">
+                                  <!-- FIX: Re-sized, added heavy fallbacks, and removed break-word to stop snapping -->
+                                  <td class="role-text" style="padding:0 8px; font-family:'Rajdhani', 'Arial Black', sans-serif; font-size:17px; font-weight:900; color:#3A0B0D; text-transform:uppercase;">
                                     SECRETARY
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td style="padding:2px 8px 12px 8px; font-family:'Rajdhani',Arial,sans-serif; font-size:9px; font-weight:600; letter-spacing:0.5px; color:#171719; text-transform:uppercase; word-break:break-word;">
-                                    LEADERSHIP // STRATEGY // EXECUTION // RESPONSIBILITY
+                                  <!-- FIX: Updated to 3 separate lines as requested -->
+                                  <td style="padding:5px 8px 12px 8px; font-family:'Rajdhani',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.5px; color:#171719; text-transform:uppercase; line-height: 1.4;">
+                                    LEADERSHIP<br/>
+                                    STRATEGY<br/>
+                                    EXECUTION
                                   </td>
                                 </tr>
                               </table>
@@ -210,7 +212,7 @@
                               </table>
                             </td>
 
-                            <!-- RIGHT COLUMN (STRICT 50%) -->
+                            <!-- RIGHT COLUMN -->
                             <td width="50%" valign="top" style="padding-left:4px;">
                               <!-- CAPABILITIES CARD -->
                               <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border:1px solid #D7BE72; background-color:#F7F4E7; table-layout:fixed; word-wrap:break-word;">
@@ -310,7 +312,10 @@
                     </tr>
                   </table>
 
-                  <!-- SOCIAL LINKS -->
+                  <!-- NEW FOOTER (Matching Image Requirements) -->
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    
+                    <!-- SOCIAL LINKS -->
                   <tr>
                     <td align="center" style="padding:30px 20px 20px 20px; font-family:'Rajdhani',Arial,sans-serif; font-size:15px; font-weight:700; text-transform:uppercase;">
                         <a href="https://www.linkedin.com/in/vishwa-shauryam-vit-pune-522a1737b" style="color:#8A6A2F; text-decoration:underline;">LINKEDIN</a> &nbsp;&nbsp;
